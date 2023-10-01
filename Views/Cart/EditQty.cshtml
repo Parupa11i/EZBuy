@@ -1,0 +1,54 @@
+﻿
+@{
+    var itemId = ViewBag.ItemId;
+}
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-info">Your Cart</h2>
+    </div>
+        <div class="col-12 border p-3" style="width:100%">
+            <table class="table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Cost</th>
+                        <th>Quantity</th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <form method="post">
+                    @if (Model != null)
+                    {
+                        foreach (Cart item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Description
+                                </td>
+                                <td>
+                                    @item.UnitPrice
+                                </td>
+                                <td>
+                                    @if (itemId == item.Id)
+                                    {
+                                        <input type="number" name="newQty" min="1" max="4" value="@item.Quantity" />
+                                        <input type="hidden" name="unitprice" value=@item.UnitPrice />
+                                        <input type="hidden" name="sku" value=@item.SKU />
+                                    }
+                                    else
+                                    {
+                                        @item.Quantity
+                                    }
+                                </td>
+                                <td>
+                                    <button asp-controller="Cart" asp-action="EditQty" asp-route-id="@item.Id" class="btn btn-success text-white">Save</button>
+                                    <button asp-controller="Cart" asp-action="DeleteItemFromCart" asp-route-id="@item.Id" class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </form>
+            </table>
+</div>
+</div>

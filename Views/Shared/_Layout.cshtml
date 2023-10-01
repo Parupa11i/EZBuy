@@ -1,0 +1,61 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EZBuy Application</title>
+
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap-reboot.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/"><img src="~/images/Logo/Logo.001.jpeg" style="width:40px; height:30px" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Product" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Cart">Cart</a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <li>
+                        <form method="post" action="/product/index">
+                            <input type="text" value=@ViewBag.Descr style="width:300px" id="descr" name="descr" placeholder="Tell me what you want!" />
+                            &nbsp;
+                            <button type="submit" class="btn btn-primary btn-sm my-2">Search</button>
+                            &nbsp;
+                            <a class="btn btn-danger btn-sm my-2 form-control" style="width:65px; height:30px" href="~/Product/Index">Clear</a>
+                        </form>
+                    </li>
+                </ul>
+                <a class="nav-link" asp-controller="Cart" asp-action="Index">
+                    <img src="~/images/Cart.jpg" style="width:40px; height:30px" />@ViewBag.CartSize
+                </a>
+            </div>
+        </nav>
+
+    </header>
+    <div>
+        <main class="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            Copyright &copy; EZBuy Corporation. @DateTime.Now.ToString()
+        </div>
+    </footer>
+</body>
+</html>

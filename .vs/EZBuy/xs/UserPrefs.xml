@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{AEEFAD28-BB51-4FD4-9286-9E40B4B0F1A6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/CartController.cs">
+    <Files>
+      <File FileName="Controllers/CartController.cs" Line="4" Column="1" />
+      <File FileName="Startup.cs" Line="59" Column="16" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EZBuy" expanded="True">
+            <Node name="EZBuy" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="CartController.cs" selected="True" />
+              </Node>
+              <Node name="Repository" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.EZBuy PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<section class="jumbotron text-center">
+    <div class="py-5 bg-light align-items-center">
+        <div class="container">
+            <div class="row">
+                @if (Model != null)
+                {
+                    foreach (Product item in Model)
+                    {
+                        <form method="post" action="/Product/UpdateCart">
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title"> @item.SKU </h5>
+                                        <p class="card-text"> @item.Description </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p style="text-align:justify" class="text-muted small">
+                                                <button type="submit" class="btn btn-outline-secondary btn-sm" name="AddToCart">Add to cart</button>
+                                            </p>
+                                            <p class="small">
+                                                Price &nbsp;<small>@item.Price</small>
+                                                <br />
+                                                Quantity <input type="number" name="qty" id="qty" min="1" value="1" max="4" style="width:40px">
+                                                <input type="hidden" name="id" value="@item.Id" />
+                                                <input type="hidden" name="sku" value="@item.SKU" />
+                                                <input type="hidden" name="price" value="@item.Price" />
+                                                <input type="hidden" name="itemDescr" value="@item.Description" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                        </form>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
